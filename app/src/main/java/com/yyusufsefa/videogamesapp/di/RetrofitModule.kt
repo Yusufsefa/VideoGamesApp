@@ -38,7 +38,7 @@ object RetrofitModule {
                         .newBuilder()
                         .addHeader(
                             "x-rapidapi-key",
-                            "c26b205fa2msh4d347d5bf67607cp1b5036jsn0f1e6a63a3e9"
+                            BuildConfig.API_KEY
                         )
                         .build()
                     chain.proceed(request)
@@ -52,7 +52,7 @@ object RetrofitModule {
         .Builder()
         .client(client)
         .addConverterFactory(GsonConverterFactory.create())
-        .baseUrl("https://rawg-video-games-database.p.rapidapi.com/")
+        .baseUrl(BuildConfig.BASE_URL)
         .build()
 
     @Singleton
