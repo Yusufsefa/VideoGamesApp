@@ -1,4 +1,4 @@
-package com.yyusufsefa.videogamesapp.data.model
+package com.yyusufsefa.videogamesapp.data.videogamemodel
 
 data class Platforms(
     val platform: _Platform? = null,

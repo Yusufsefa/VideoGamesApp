@@ -1,4 +1,4 @@
-package com.yyusufsefa.videogamesapp.data.model
+package com.yyusufsefa.videogamesapp.data.videogamemodel
 
 data class VideoGame(
     val id: Int? = 0,

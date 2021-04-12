@@ -1,8 +1,8 @@
-package com.yyusufsefa.videogamesapp.data.model
+package com.yyusufsefa.videogamesapp.data.videogamemodel
 
 data class Ratings(
     val id: Int? = 0,
     val title: String? = "",
     val count: Int? = 0,
-    val percent: String? = ""
+    val percent: Double? = 0.0
 )

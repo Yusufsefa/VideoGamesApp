@@ -1,4 +1,4 @@
-package com.yyusufsefa.videogamesapp.data.model
+package com.yyusufsefa.videogamesapp.data.videogamemodel
 
 import com.google.gson.annotations.SerializedName
 

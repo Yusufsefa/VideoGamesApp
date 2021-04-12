@@ -1,4 +1,4 @@
-package com.yyusufsefa.videogamesapp.data.model
+package com.yyusufsefa.videogamesapp.data.videogamemodel
 
 data class _Years(
     val year: Int? = 0,
