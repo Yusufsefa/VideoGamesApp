@@ -18,19 +18,28 @@ class HomeViewModel @Inject constructor(private val videoGameRepository: VideoGa
     private val _gameData = MutableLiveData<Resource<List<Game>>>()
     val gameData: LiveData<Resource<List<Game>>> get() = _gameData
 
+    val allGameFromDb: LiveData<List<Game>> = videoGameRepository.allGameDataDb
+
     init {
         getVideoGames()
     }
 
-    fun getVideoGames() {
+
+    private fun getVideoGames() {
         viewModelScope.launch {
             _gameData.postValue(Resource.loading())
 
             videoGameRepository.getVideoGames().let {
-                _gameData.postValue(Resource.success(it.data?.games.orEmpty()))
+                it.data?.let { gameResponse ->
+                    _gameData.postValue(Resource.success(gameResponse.games.orEmpty()))
+                    videoGameRepository.insertData(gameResponse.games.orEmpty())
+                }
             }
         }
     }
 
+    fun searchDatabase(searchQuery: String): LiveData<List<Game>> {
+        return videoGameRepository.searchDatabase(searchQuery)
+    }
 
 }

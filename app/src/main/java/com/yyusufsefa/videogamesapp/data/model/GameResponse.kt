@@ -1,11 +1,10 @@
 package com.yyusufsefa.videogamesapp.data.model
 
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
-
 data class GameResponse(
-    var _id: Long,
-
+    @PrimaryKey(autoGenerate = true) var _id: Long,
     val count: Int?,
     val description: String?,
     val filters: Filters?,

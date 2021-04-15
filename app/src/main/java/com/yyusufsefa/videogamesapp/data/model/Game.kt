@@ -1,9 +1,15 @@
 package com.yyusufsefa.videogamesapp.data.model
 
+import android.os.Parcelable
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
+@Entity(tableName = "video_game")
 data class Game(
-    val id: Int,
+    @PrimaryKey @SerializedName("id") val _id: Int,
     val added: Int? = null,
     @SerializedName("added_by_status") val addedByStatus: AddedByStatus? = null,
     @SerializedName("background_image") val backgroundImage: String? = null,
@@ -32,5 +38,5 @@ data class Game(
     val tba: Boolean? = null,
     val updated: String? = null,
     @SerializedName("user_game") var userGame: String? = null,
-    val isLiked: Boolean
-)
+    val isLiked: Boolean = false
+) : Parcelable
