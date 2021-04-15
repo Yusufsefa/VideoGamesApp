@@ -1,14 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
+        <variable
+            name="itemViewState"
+            type="com.yyusufsefa.videogamesapp.data.viewstate.GameItemViewState" />
+
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:elevation="4dp"
+        app:cardCornerRadius="8dp">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/img_item_game"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:maxWidth="150dp"
+                android:maxHeight="150dp"
+                android:padding="5dp"
+                android:scaleType="fitXY"
+                app:imageUrl="@{itemViewState.imageUrl}"
+                tools:src="@drawable/ic_launcher_background" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txt_item_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:minWidth="120dp"
+                android:text="@{itemViewState.name}"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/img_item_game"
+                app:layout_constraintTop_toTopOf="@+id/img_item_game"
+                tools:ignore="UnknownIdInLayout"
+                tools:text="Gta The V" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txt_item_rating_released"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:minWidth="120dp"
+                android:text="@{itemViewState.ratingAndReleased}"
+                android:textSize="17sp"
+                app:layout_constraintEnd_toEndOf="@id/txt_item_name"
+                app:layout_constraintStart_toEndOf="@+id/img_item_game"
+                app:layout_constraintStart_toStartOf="@id/txt_item_name"
+                app:layout_constraintTop_toBottomOf="@+id/txt_item_name"
+                tools:text="Rating - Released" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
 </layout>

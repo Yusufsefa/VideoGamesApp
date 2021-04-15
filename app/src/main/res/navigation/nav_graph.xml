@@ -7,11 +7,20 @@
     <fragment
         android:id="@+id/home"
         android:name="com.yyusufsefa.videogamesapp.ui.home.HomeFragment"
-        android:label="HomeFragment" />
+        android:label="HomeFragment">
+        <action
+            android:id="@+id/action_home_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/detailFragment"
         android:name="com.yyusufsefa.videogamesapp.ui.detail.DetailFragment"
-        android:label="DetailFragment" />
+        android:label="DetailFragment">
+        <argument
+            android:name="gameName"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
     <fragment
         android:id="@+id/like"
         android:name="com.yyusufsefa.videogamesapp.ui.favori.FavoriFragment"

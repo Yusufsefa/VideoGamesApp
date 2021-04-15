@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="itemViewState"
+            type="com.yyusufsefa.videogamesapp.data.viewstate.VpItemViewPagerState" />
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:foregroundGravity="center">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/img_page"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_launcher_background"
+            app:imageUrl="@{itemViewState.imageUrl}" />
+    </FrameLayout>
+</layout>

@@ -6,7 +6,10 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.yyusufsefa.videogamesapp.R
 import com.yyusufsefa.videogamesapp.databinding.ActivityMainBinding
+import com.yyusufsefa.videogamesapp.util.hide
+import com.yyusufsefa.videogamesapp.util.show
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.activity_main.*
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -26,6 +29,12 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNavigation.inflateMenu(R.menu.bottom_nav_menu)
         val navController = findNavController(R.id.nav_host_fragment)
         binding.bottomNavigation.setupWithNavController(navController)
+        navController.addOnDestinationChangedListener { controller, destination, arguments ->
+            when (destination.id) {
+                R.id.detailFragment -> bottomNavigation.hide()
+                else -> bottomNavigation.show()
+            }
+        }
     }
 
 }
