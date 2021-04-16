@@ -13,6 +13,8 @@ import javax.inject.Inject
 class VideoGameRepository @Inject constructor(private val api: Api, private val gameDao: GameDao) :
     BaseRepository() {
 
+    val allGameDataDb = gameDao.getAllGame()
+
     suspend fun getVideoGames(): Resource<GameResponse> {
         return getResult {
             api.getVideoGames()
@@ -24,8 +26,6 @@ class VideoGameRepository @Inject constructor(private val api: Api, private val 
             api.getDetailVideoGames(name)
         }
     }
-
-    val allGameDataDb = gameDao.getAllGame()
 
     suspend fun insertData(games: List<Game>) {
         gameDao.insert(games)
@@ -39,8 +39,13 @@ class VideoGameRepository @Inject constructor(private val api: Api, private val 
         gameDao.deleteLiked(gameId)
     }
 
-    fun searchDatabase(searchQuery: String): LiveData<List<Game>> {
-        return gameDao.searchDatabase(searchQuery)
-    }
+    fun searchDatabase(searchQuery: String): LiveData<List<Game>> =
+        gameDao.searchDatabase(searchQuery)
 
+
+    fun getGameDb(id: Int): LiveData<Game> =
+        gameDao.getGame(id)
+
+    fun getLikedGameFromDb(): LiveData<List<Game>> =
+        gameDao.getLikedGame()
 }

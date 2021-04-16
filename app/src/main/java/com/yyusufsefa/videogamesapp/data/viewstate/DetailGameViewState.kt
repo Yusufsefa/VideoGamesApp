@@ -13,4 +13,5 @@ class DetailGameViewState(val detailGame: GameDetailResponse) {
     fun getMetacriticRate() = detailGame.metacritic.toString()
 
     fun getDetailDescription() = detailGame.description ?: ""
+
 }

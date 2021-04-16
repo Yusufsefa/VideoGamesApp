@@ -24,5 +24,9 @@
     <fragment
         android:id="@+id/like"
         android:name="com.yyusufsefa.videogamesapp.ui.favori.FavoriFragment"
-        android:label="FavoriFragment" />
+        android:label="FavoriFragment">
+        <action
+            android:id="@+id/action_like_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
 </navigation>

@@ -18,10 +18,11 @@ class DetailViewModel @Inject constructor(private val repository: VideoGameRepos
     private val _gameDetail = MutableLiveData<Resource<GameDetailResponse>>()
     val gameDetail: LiveData<Resource<GameDetailResponse>> get() = _gameDetail
 
+    val allGame = repository.allGameDataDb
+
     fun getGameDetail(name: String) {
         viewModelScope.launch {
             _gameDetail.postValue(Resource.loading())
-
             repository.getDetailVideoGames(name).let {
                 _gameDetail.postValue(Resource.success(it.data!!))
             }
@@ -33,4 +34,7 @@ class DetailViewModel @Inject constructor(private val repository: VideoGameRepos
             repository.updateData(isLiked, gameId)
         }
     }
+
+    fun getGameDb(id: Int) = repository.getGameDb(id)
+
 }

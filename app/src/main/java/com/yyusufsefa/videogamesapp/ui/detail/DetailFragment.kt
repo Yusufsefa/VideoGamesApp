@@ -1,6 +1,7 @@
 package com.yyusufsefa.videogamesapp.ui.detail
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -21,9 +22,8 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>(R.layout.fragment_det
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        initUI()
         observeDetailGame()
-
+        initUI()
     }
 
     private fun observeDetailGame() {
@@ -33,6 +33,12 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>(R.layout.fragment_det
                 }
                 Status.SUCCESS -> {
                     binding.viewState = DetailGameViewState(it.data!!)
+                    it.data.id?.let { _gameId ->
+                        checkLiked(_gameId)
+                        viewmodel.getGameDb(_gameId).observe(viewLifecycleOwner, { game ->
+                            binding.game = game
+                        })
+                    }
                 }
                 Status.ERROR -> {
                 }
@@ -45,6 +51,17 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>(R.layout.fragment_det
             gameName = DetailFragmentArgs.fromBundle(it!!).gameName!!
         }
         viewmodel.getGameDetail(gameName)
+    }
+
+    private fun checkLiked(gameId: Int) {
+        binding.imgIslike.setOnClickListener {
+            viewmodel.updateGame(true, gameId)
+            Log.e("like", gameId.toString())
+        }
+        binding.imgIsliked.setOnClickListener {
+            viewmodel.updateGame(false, gameId)
+            Log.e("liked", gameId.toString())
+        }
     }
 
 }

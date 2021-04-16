@@ -7,9 +7,15 @@
 
     <data>
 
+        <import type="android.view.View" />
+
         <variable
             name="viewState"
             type="com.yyusufsefa.videogamesapp.data.viewstate.DetailGameViewState" />
+
+        <variable
+            name="game"
+            type="com.yyusufsefa.videogamesapp.data.model.Game" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -28,14 +34,28 @@
             tools:src="@drawable/ic_launcher_background" />
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/img_btn_isliked"
+            android:id="@+id/img_islike"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginBottom="8dp"
             android:elevation="4dp"
+            android:visibility="@{game.isLiked ? View.GONE : View.VISIBLE}"
             android:src="@drawable/ic_thumb_up"
+            app:layout_constraintBottom_toBottomOf="@+id/img_detail_game"
+            app:layout_constraintEnd_toEndOf="@+id/img_detail_game" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/img_isliked"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="8dp"
+            android:elevation="4dp"
+            android:src="@drawable/liked"
+            android:visibility="@{game.isLiked ? View.VISIBLE : View.GONE}"
             app:layout_constraintBottom_toBottomOf="@+id/img_detail_game"
             app:layout_constraintEnd_toEndOf="@+id/img_detail_game" />
 

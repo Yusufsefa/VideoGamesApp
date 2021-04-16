@@ -73,10 +73,13 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
                 if (query != null && query.length >= 3) {
                     binding.viewPagerHome.hide()
                     binding.indicator.hide()
+                    binding.txtNullResult.hide()
                     searchDatabase(query)
                 } else {
                     binding.viewPagerHome.show()
                     binding.indicator.show()
+                    binding.rcycHome.show()
+                    binding.txtNullResult.hide()
                     observeGame()
                 }
                 return true
@@ -90,7 +93,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
             it.let {
                 gameAdapter.submitList(it)
             }
-            if (it == null) {
+            if (it.isEmpty()) {
                 binding.viewPagerHome.hide()
                 binding.indicator.hide()
                 binding.rcycHome.hide()
