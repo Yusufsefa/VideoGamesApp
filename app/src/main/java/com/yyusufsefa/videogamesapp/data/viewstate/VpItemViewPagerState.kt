@@ -4,5 +4,5 @@ import com.yyusufsefa.videogamesapp.data.model.Game
 
 class VpItemViewPagerState(private val game: Game) {
 
-    fun getImageUrl() = game.backgroundImage ?: ""
+    fun getImageUrl() = game.backgroundImage.orEmpty()
 }

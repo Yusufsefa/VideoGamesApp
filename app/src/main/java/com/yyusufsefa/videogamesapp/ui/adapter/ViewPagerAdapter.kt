@@ -7,8 +7,8 @@ import com.yyusufsefa.videogamesapp.data.model.Game
 import com.yyusufsefa.videogamesapp.data.viewstate.VpItemViewPagerState
 import com.yyusufsefa.videogamesapp.databinding.ItemPageBinding
 
-class ViewPagerAdapter(private var games: List<Game>) :
-    RecyclerView.Adapter<ViewPagerAdapter.Pager2ViewHolder>() {
+class ViewPagerAdapter : RecyclerView.Adapter<ViewPagerAdapter.PagerViewHolder>() {
+    private var games: List<Game> = emptyList()
 
     private var onItemClickListener: ((Game) -> Unit)? = null
 
@@ -16,29 +16,33 @@ class ViewPagerAdapter(private var games: List<Game>) :
         this.onItemClickListener = onItemClickListener
     }
 
-    class Pager2ViewHolder(private var binding: ItemPageBinding) :
-        RecyclerView.ViewHolder(binding.root) {
-        fun bind(game: Game, onItemClickListener: ((Game) -> Unit)?) {
-            binding.apply {
-                this.itemViewState = VpItemViewPagerState(game)
-                root.setOnClickListener { onItemClickListener?.invoke(game) }
-            }
-        }
+    fun setNewList(games: List<Game>) {
+        this.games = games
+        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): Pager2ViewHolder = Pager2ViewHolder(
+    ): PagerViewHolder = PagerViewHolder(
         ItemPageBinding.inflate(
             LayoutInflater.from(parent.context),
             parent,
             false
         )
-    )
+    ).apply {
+        this.itemView.setOnClickListener { onItemClickListener?.invoke(games[adapterPosition]) }
+    }
 
-    override fun onBindViewHolder(holder: Pager2ViewHolder, position: Int) =
-        holder.bind(games[position], onItemClickListener)
+    override fun onBindViewHolder(holder: PagerViewHolder, position: Int) =
+        holder.bind(games[position])
 
     override fun getItemCount(): Int = games.size
+
+    class PagerViewHolder(private var binding: ItemPageBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun bind(game: Game) {
+            binding.itemViewState = VpItemViewPagerState(game)
+        }
+    }
 }
