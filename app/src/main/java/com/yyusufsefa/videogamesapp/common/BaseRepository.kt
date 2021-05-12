@@ -5,7 +5,6 @@ import retrofit2.Response
 
 open class BaseRepository {
     protected suspend fun <T> getResult(call: suspend () -> Response<T>): Resource<T> {
-
         try {
             val response = call()
             if (response.isSuccessful) {
@@ -20,6 +19,9 @@ open class BaseRepository {
         }
     }
 
+    /**
+     * Exception handling -> error code
+     */
     private fun <T> error(message: String, errorCode: Int): Resource<T> {
         return Resource.error("Network call has failed for a following reason: $message")
     }

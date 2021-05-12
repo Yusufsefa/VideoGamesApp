@@ -10,10 +10,10 @@ import com.yyusufsefa.videogamesapp.network.Api
 import com.yyusufsefa.videogamesapp.util.Resource
 import javax.inject.Inject
 
-class VideoGameRepository @Inject constructor(private val api: Api, private val gameDao: GameDao) :
-    BaseRepository() {
-
-    val allGameDataDb = gameDao.getAllGame()
+class VideoGameRepository @Inject constructor(
+    private val api: Api,
+    private val gameDao: GameDao
+) : BaseRepository() {
 
     suspend fun getVideoGames(): Resource<GameResponse> {
         return getResult {
@@ -35,17 +35,11 @@ class VideoGameRepository @Inject constructor(private val api: Api, private val 
         gameDao.update(isLiked, gameId)
     }
 
-    suspend fun deleteLikedGame(gameId: Int) {
-        gameDao.deleteLiked(gameId)
-    }
+    fun searchDatabase(searchQuery: String) = gameDao.searchDatabase(searchQuery)
 
-    fun searchDatabase(searchQuery: String): LiveData<List<Game>> =
-        gameDao.searchDatabase(searchQuery)
+    fun getGameDb(id: Int): LiveData<Game> = gameDao.getGame(id)
 
+    fun getLikedGameFromDb(): LiveData<List<Game>> = gameDao.getLikedGame()
 
-    fun getGameDb(id: Int): LiveData<Game> =
-        gameDao.getGame(id)
-
-    fun getLikedGameFromDb(): LiveData<List<Game>> =
-        gameDao.getLikedGame()
+    suspend fun getAllGame() = gameDao.getAllGames()
 }
