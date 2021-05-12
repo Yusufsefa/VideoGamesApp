@@ -35,7 +35,7 @@ class GameAdapter : ListAdapter<Game, GameAdapter.GameViewHolder>(diffCallBack) 
         RecyclerView.ViewHolder(gameBinding.root) {
 
         fun bind(game: Game) {
-            gameBinding.apply {
+            gameBinding.run {
                 this.itemViewState = GameItemViewState(game)
             }
         }
@@ -50,5 +50,4 @@ class GameAdapter : ListAdapter<Game, GameAdapter.GameViewHolder>(diffCallBack) 
                 oldItem == newItem
         }
     }
-
 }

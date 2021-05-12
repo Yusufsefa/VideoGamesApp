@@ -8,7 +8,7 @@
 
     </data>
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -19,20 +19,19 @@
             android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
             app:defaultNavHost="true"
-            app:navGraph="@navigation/nav_graph"
-            tools:layout_editor_absoluteX="181dp"
-            tools:layout_editor_absoluteY="251dp" />
+            app:navGraph="@navigation/nav_graph" />
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottomNavigation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:clickable="true"
-            app:labelVisibilityMode="labeled"
+            android:layout_gravity="bottom"
             android:background="@color/white"
+            android:clickable="true"
+            android:focusable="true"
+            app:labelVisibilityMode="labeled"
             app:menu="@menu/bottom_nav_menu" />
 
-    </LinearLayout>
+    </FrameLayout>
 </layout>

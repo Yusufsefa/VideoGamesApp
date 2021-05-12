@@ -14,16 +14,18 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object DatabaseModule {
+
+    private const val DATABASE_NAME = "game_database"
+
     @Provides
     @Singleton
     fun gameDatabase(@ApplicationContext context: Context): GameDatabase = Room.databaseBuilder(
         context,
         GameDatabase::class.java,
-        "game_database"
+        DATABASE_NAME
     ).build()
 
     @Provides
     @Singleton
-    fun gameDao(cryptoDatabase: GameDatabase): GameDao =
-        cryptoDatabase.gameDao()
+    fun gameDao(gameDatabase: GameDatabase): GameDao = gameDatabase.gameDao()
 }

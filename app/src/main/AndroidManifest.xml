@@ -5,14 +5,18 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name=".BaseApplication"
+        android:name=".Application"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.VideoGamesApp">
-        <activity android:name=".ui.MainActivity">
+        <activity
+            android:name=".ui.MainActivity"
+            android:launchMode="singleInstance">
+            <!--            https://www.mobilhanem.com/android-activity-launch-mode/ -->
+            <!--            https://medium.com/onedio-mobile-development-team/android-using-activity-alias-for-changing-icon-anytime-without-publish-app-dd4f11f6cf52 -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

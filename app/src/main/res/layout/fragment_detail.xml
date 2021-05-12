@@ -7,15 +7,10 @@
 
     <data>
 
-        <import type="android.view.View" />
-
         <variable
             name="viewState"
             type="com.yyusufsefa.videogamesapp.data.viewstate.DetailGameViewState" />
 
-        <variable
-            name="game"
-            type="com.yyusufsefa.videogamesapp.data.model.Game" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -31,31 +26,31 @@
             app:imageUrl="@{viewState.detailImageUrl}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints"
             tools:src="@drawable/ic_launcher_background" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="@android:style/Widget.ProgressBar.Inverse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/img_islike"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginBottom="8dp"
-            android:elevation="4dp"
-            android:visibility="@{game.isLiked ? View.GONE : View.VISIBLE}"
+            android:layout_width="@dimen/size_game_detail_like_button_40dp"
+            android:layout_height="@dimen/size_game_detail_like_button_40dp"
+            android:layout_marginEnd="@dimen/keyline_8dp"
+            android:layout_marginRight="@dimen/keyline_8dp"
+            android:layout_marginBottom="@dimen/keyline_8dp"
+            android:elevation="@dimen/keyline_4dp"
             android:src="@drawable/ic_thumb_up"
-            app:layout_constraintBottom_toBottomOf="@+id/img_detail_game"
-            app:layout_constraintEnd_toEndOf="@+id/img_detail_game" />
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/img_isliked"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginBottom="8dp"
-            android:elevation="4dp"
-            android:src="@drawable/liked"
-            android:visibility="@{game.isLiked ? View.VISIBLE : View.GONE}"
+            android:tint="@{viewState.checkLike(context)}"
             app:layout_constraintBottom_toBottomOf="@+id/img_detail_game"
             app:layout_constraintEnd_toEndOf="@+id/img_detail_game" />
 
@@ -63,20 +58,20 @@
             android:id="@+id/txt_detail_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="12dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginLeft="@dimen/keyline_12dp"
+            android:layout_marginTop="@dimen/keyline_24dp"
             android:text="@{viewState.detailName}"
             android:textSize="30sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/img_detail_game"
-            tools:text="Name Of Game" />
+            tools:text="@tools:sample/lorem" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/txt_detail_release"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="@dimen/keyline_8dp"
             android:text="@{viewState.release}"
             android:textSize="13sp"
             android:textStyle="bold"
@@ -88,21 +83,21 @@
             android:id="@+id/txt_detail_metacritic_rate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="@dimen/keyline_8dp"
             android:text="@{viewState.metacriticRate}"
-            android:textSize="13sp"
+            android:textSize="12sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/txt_detail_release"
             app:layout_constraintTop_toBottomOf="@+id/txt_detail_release"
-            tools:text="Metacritic Rate" />
+            tools:text="@tools:sample/lorem[2]" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/txt_detail_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginRight="8dp"
+            android:layout_marginLeft="@dimen/keyline_8dp"
+            android:layout_marginTop="@dimen/keyline_16dp"
+            android:layout_marginRight="@dimen/keyline_8dp"
             android:text="@{viewState.detailDescription}"
             android:textSize="12sp"
             android:textStyle="bold"

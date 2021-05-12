@@ -7,6 +7,9 @@
 
     <data>
 
+        <variable
+            name="viewModel"
+            type="com.yyusufsefa.videogamesapp.ui.home.HomeViewModel" />
     </data>
 
     <LinearLayout
@@ -23,35 +26,46 @@
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/view_pager_home"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:layout_marginLeft="6dp"
-            android:layout_marginTop="6dp"
-            android:layout_marginRight="6dp"
+            android:layout_height="256dp"
+            android:layout_marginLeft="@dimen/keyline_4dp"
+            android:layout_marginTop="@dimen/keyline_4dp"
+            android:layout_marginRight="@dimen/keyline_4dp"
             android:orientation="horizontal" />
 
-        <me.relex.circleindicator.CircleIndicator3
-            android:id="@+id/indicator"
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/into_tab_layout"
             android:layout_width="match_parent"
-            android:layout_height="15dp"
-            android:layout_marginLeft="6dp"
-            android:layout_marginRight="6dp"
-            android:layout_marginBottom="6dp"
-            android:background="#B7DEE3"
-            android:outlineSpotShadowColor="@color/black" />
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/keyline_4dp"
+            android:layout_marginRight="@dimen/keyline_4dp"
+            app:tabBackground="@drawable/tab_pager_selector"
+            app:tabGravity="center"
+            app:tabIndicatorHeight="0dp" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/txt_null_result"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Üzgünüz, aradığınız oyun bulunamadı!"
+            android:text="@string/error_message"
             android:textSize="20sp"
             android:visibility="gone" />
+
+        <ProgressBar
+            android:id="@+id/prgLoading"
+            style="@android:style/Widget.ProgressBar.Inverse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            tools:visibility="visible" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rcyc_home"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/keyline_4dp"
+            android:layout_marginRight="@dimen/keyline_4dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:listitem="@layout/item_game" />
 

@@ -10,6 +10,5 @@ class FavoriViewModel @Inject constructor(private val repository: VideoGameRepos
     ViewModel() {
 
     val allLikedGame = repository.getLikedGameFromDb()
-    val allGame = repository.allGameDataDb
 
 }

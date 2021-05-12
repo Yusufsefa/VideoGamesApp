@@ -51,7 +51,7 @@ object RetrofitModule {
     fun provideRetrofit(client: OkHttpClient): Retrofit = Retrofit
         .Builder()
         .client(client)
-        .addConverterFactory(GsonConverterFactory.create())
+        .addConverterFactory(GsonConverterFactory.create()) // TOOD Moshi, Kotlinx
         .baseUrl(BuildConfig.BASE_URL)
         .build()
 

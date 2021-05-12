@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="keyline_16dp">16dp</dimen>
+    <dimen name="keyline_8dp">8dp</dimen>
+    <dimen name="keyline_4dp">4dp</dimen>
+    <dimen name="size_game_detail_like_button_40dp">40dp</dimen>
+    <dimen name="indicator_size">6dp</dimen>
+
+    <dimen name="tab_padding_start">8dp</dimen>
+    <dimen name="tab_padding_end">8dp</dimen>
+    <dimen name="keyline_12dp">12dp</dimen>
+    <dimen name="keyline_24dp">24dp</dimen>
+
+</resources>

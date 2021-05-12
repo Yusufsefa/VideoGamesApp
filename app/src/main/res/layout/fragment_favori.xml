@@ -8,17 +8,11 @@
 
     </data>
 
-    <FrameLayout
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcyc_favorite"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.favori.FavoriFragment">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rcyc_favorite"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/item_game" />
-
-    </FrameLayout>
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:context=".ui.favori.FavoriFragment"
+        tools:listitem="@layout/item_game" />
 </layout>
