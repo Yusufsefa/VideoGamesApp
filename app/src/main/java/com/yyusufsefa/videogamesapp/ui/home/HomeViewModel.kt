@@ -36,12 +36,12 @@ class HomeViewModel @Inject constructor(private val videoGameRepository: VideoGa
         viewModelScope.launch {
             _gameData.postValue(Resource.loading())
             _gameData.postValue(Resource.success(videoGameRepository.getAllGame()))
-//            videoGameRepository.getVideoGames().let {
-//                it.data?.let { gameResponse ->
-//                    _gameData.postValue(Resource.success(gameResponse.games.orEmpty()))
-//                    videoGameRepository.insertData(gameResponse.games.orEmpty())
-//                }
-//            }
+            videoGameRepository.getVideoGames().let {
+                it.data?.let { gameResponse ->
+                    _gameData.postValue(Resource.success(gameResponse.games.orEmpty()))
+                    videoGameRepository.insertData(gameResponse.games.orEmpty())
+                }
+            }
         }
     }
 

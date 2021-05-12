@@ -153,5 +153,4 @@ object DataTypeConverter {
         val type: Type = object : TypeToken<Clip?>() {}.type
         return Gson().fromJson<Clip?>(value, type)
     }
-
 }

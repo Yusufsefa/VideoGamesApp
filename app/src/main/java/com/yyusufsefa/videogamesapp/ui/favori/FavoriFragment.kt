@@ -8,9 +8,6 @@ import com.yyusufsefa.videogamesapp.ui.adapter.GameAdapter
 import com.yyusufsefa.videogamesapp.util.navigate
 import dagger.hilt.android.AndroidEntryPoint
 
-/**
- * Typo hataları
- */
 @AndroidEntryPoint
 class FavoriFragment : BaseFragment<FragmentFavoriBinding>(R.layout.fragment_favori) {
 

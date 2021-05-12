@@ -2,7 +2,6 @@ package com.yyusufsefa.videogamesapp.data.model
 
 import com.google.gson.annotations.SerializedName
 
-
 data class Publisher(
     val games_count: Int?,
     val id: Int?,

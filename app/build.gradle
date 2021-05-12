@@ -24,14 +24,14 @@ android {
     buildTypes {
         release {
             buildConfigField("String", "BASE_URL", '"https://rawg-video-games-database.p.rapidapi.com/"')
-            buildConfigField("String", "API_KEY", '"c26b205fa2msh4d347d5bf67607cp1b5036jsn0f1e6a63a3e9"')
+            buildConfigField("String", "API_KEY", '"YOUR_API_KEY"')
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
 
         debug {
             buildConfigField("String", "BASE_URL", '"https://rawg-video-games-database.p.rapidapi.com/"')
-            buildConfigField("String", "API_KEY", '"c26b205fa2msh4d347d5bf67607cp1b5036jsn0f1e6a63a3e9"')
+            buildConfigField("String", "API_KEY", '"YOUR_API_KEY"')
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
