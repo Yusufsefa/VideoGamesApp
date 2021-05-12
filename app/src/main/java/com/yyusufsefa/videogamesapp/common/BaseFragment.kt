@@ -15,7 +15,8 @@ abstract class BaseFragment<WD : ViewDataBinding>(@LayoutRes private val layoutR
     internal lateinit var binding: WD
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View = DataBindingUtil.inflate<WD>(
         inflater,
@@ -25,4 +26,14 @@ abstract class BaseFragment<WD : ViewDataBinding>(@LayoutRes private val layoutR
     ).also {
         binding = it
     }.root
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initUI()
+        observeData()
+    }
+
+    open fun initUI() {}
+
+    open fun observeData() {}
 }
