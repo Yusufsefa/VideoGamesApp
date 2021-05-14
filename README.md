@@ -22,4 +22,7 @@ Videp games application using the API from https://rapidapi.com/ API  is the JSO
 * [Dagger-Hilt](https://developer.android.com/training/dependency-injection/hilt-android#setup) - can help you automate dependency injection in your app
 * [Glide](https://bumptech.github.io/glide/) - for image loading
 
-#Screens
+# Screens
+
+<img src="https://user-images.githubusercontent.com/52718099/118316785-ec5b5200-b4ff-11eb-803c-d234b734a66f.png" width="210"  alt="Xp ve Scrum 1"/> <img src="https://user-images.githubusercontent.com/52718099/118316951-1d3b8700-b500-11eb-8ce1-0c8960d205e5.png" width="210" alt="Xp ve Scrum 2" /> <img src="https://user-images.githubusercontent.com/52718099/118317015-347a7480-b500-11eb-98b4-d2e2b8cd78d3.png" width="210" alt="Xp ve Scrum 2" />
+
